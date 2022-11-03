@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
-
 import WalletSlice from "./wallets";
 
 const store = configureStore({
