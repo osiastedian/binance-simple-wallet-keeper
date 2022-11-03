@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { actions as WalletActions } from "../store/wallets";
+import { actions as WalletActions } from "../../store/wallets";
 
 const WalletGenerateForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const WalletGenerateForm: React.FC = () => {
         <input
           type="password"
           name="walletPassword"
+          id="walletPassword"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

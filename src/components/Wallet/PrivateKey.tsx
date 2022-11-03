@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { StoreState } from "../../store/type";
+import { RootState } from "../../store/Provider";
+
 import { getWalletPrivateKey } from "../../store/wallets/selectors";
 
 type WalletPrivateKeyProps = {
@@ -11,7 +12,7 @@ const WalletPrivateKey: React.FC<WalletPrivateKeyProps> = ({ address }) => {
   const [password, setPassword] = useState("");
   const [showPrivateKey, setShowPrivateKey] = useState(false);
   const [showPasswordForm, setShowPasswordForm] = useState(false);
-  const privateKey = useSelector((state: StoreState) =>
+  const privateKey = useSelector((state: RootState) =>
     getWalletPrivateKey(state, address, password)
   );
 
@@ -35,6 +36,7 @@ const WalletPrivateKey: React.FC<WalletPrivateKeyProps> = ({ address }) => {
           name={`${address} password`}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
         ></input>
         <button type="submit">Enter</button>
       </form>

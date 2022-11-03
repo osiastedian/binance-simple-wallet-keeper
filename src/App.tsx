@@ -1,6 +1,5 @@
-import "./App.css";
 import WalletList from "./components/Wallet/List";
-import WalletGenerateForm from "./components/WalletGenerateForm";
+import WalletGenerateForm from "./components/Wallet/GenerateForm";
 import StoreProvider from "./store/Provider";
 
 function App() {

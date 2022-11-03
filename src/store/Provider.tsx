@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
 import WalletSlice from "./wallets";
@@ -11,12 +11,17 @@ let preloadedState = persistedStateSerialized
   ? JSON.parse(persistedStateSerialized)
   : undefined;
 
-const store = configureStore({
-  reducer: {
-    wallet: WalletSlice.reducer,
-  },
+export const reducer = combineReducers({
+  wallet: WalletSlice.reducer,
+});
+
+export const store = configureStore({
+  reducer,
   preloadedState,
 });
+
+export type AppStore = typeof store;
+export type RootState = ReturnType<typeof store.getState>;
 
 const saveStoreSate = () => {
   const serialized = JSON.stringify(store.getState());
