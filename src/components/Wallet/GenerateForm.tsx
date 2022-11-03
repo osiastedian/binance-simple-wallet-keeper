@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { actions as WalletActions } from "../../store/wallets";
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { actions as WalletActions } from '../../store/wallets'
 
 const WalletGenerateForm: React.FC = () => {
-  const dispatch = useDispatch();
-  const [password, setPassword] = useState("");
+  const dispatch = useDispatch()
+  const [password, setPassword] = useState('')
   const handleOnSubmit: React.FormEventHandler = (event) => {
-    event.preventDefault();
-    dispatch(WalletActions.generateWallet({ password }));
-    setPassword("");
-  };
+    event.preventDefault()
+    dispatch(WalletActions.generateWallet({ password }))
+    setPassword('')
+  }
   return (
     <form onSubmit={handleOnSubmit}>
       <div>
@@ -24,7 +24,7 @@ const WalletGenerateForm: React.FC = () => {
       </div>
       <button type="submit">Generate</button>
     </form>
-  );
-};
+  )
+}
 
-export default WalletGenerateForm;
+export default WalletGenerateForm

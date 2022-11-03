@@ -1,5 +1,5 @@
-export type EncryptedPrivateKey = string;
+export type EncryptedPrivateKey = string
 
 export interface WalletState {
-  wallets: Record<string, EncryptedPrivateKey>;
+  wallets: Record<string, EncryptedPrivateKey>
 }

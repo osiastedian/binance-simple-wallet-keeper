@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
-import { getWalletAddresses } from "../../store/wallets/selectors";
-import WalletPrivateKey from "./PrivateKey";
+import { useSelector } from 'react-redux'
+import { getWalletAddresses } from '../../store/wallets/selectors'
+import WalletPrivateKey from './PrivateKey'
 
 const WalletList = () => {
-  const walletAddresses = useSelector(getWalletAddresses);
+  const walletAddresses = useSelector(getWalletAddresses)
   return (
     <table>
       <thead>
@@ -29,7 +29,7 @@ const WalletList = () => {
         )}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default WalletList;
+export default WalletList

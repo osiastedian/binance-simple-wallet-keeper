@@ -1,6 +1,6 @@
-import WalletList from "./components/Wallet/List";
-import WalletGenerateForm from "./components/Wallet/GenerateForm";
-import StoreProvider from "./store/Provider";
+import WalletList from './components/Wallet/List'
+import WalletGenerateForm from './components/Wallet/GenerateForm'
+import StoreProvider from './store/Provider'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <WalletList />
       </div>
     </StoreProvider>
-  );
+  )
 }
 
-export default App;
+export default App

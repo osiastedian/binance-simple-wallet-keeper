@@ -1,32 +1,32 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/Provider";
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/Provider'
 
-import { getWalletPrivateKey } from "../../store/wallets/selectors";
+import { getWalletPrivateKey } from '../../store/wallets/selectors'
 
 type WalletPrivateKeyProps = {
-  address: string;
-};
+  address: string
+}
 
 const WalletPrivateKey: React.FC<WalletPrivateKeyProps> = ({ address }) => {
-  const [password, setPassword] = useState("");
-  const [showPrivateKey, setShowPrivateKey] = useState(false);
-  const [showPasswordForm, setShowPasswordForm] = useState(false);
+  const [password, setPassword] = useState('')
+  const [showPrivateKey, setShowPrivateKey] = useState(false)
+  const [showPasswordForm, setShowPasswordForm] = useState(false)
   const privateKey = useSelector((state: RootState) =>
     getWalletPrivateKey(state, address, password)
-  );
+  )
 
   const submitPassword: React.FormEventHandler = (e) => {
-    e.preventDefault();
-    setShowPasswordForm(false);
-    setShowPrivateKey(true);
-  };
+    e.preventDefault()
+    setShowPasswordForm(false)
+    setShowPrivateKey(true)
+  }
 
   useEffect(() => {
     if (privateKey === null && showPrivateKey) {
-      setShowPrivateKey(false);
+      setShowPrivateKey(false)
     }
-  }, [privateKey, showPrivateKey]);
+  }, [privateKey, showPrivateKey])
 
   if (showPasswordForm) {
     return (
@@ -40,14 +40,14 @@ const WalletPrivateKey: React.FC<WalletPrivateKeyProps> = ({ address }) => {
         ></input>
         <button type="submit">Enter</button>
       </form>
-    );
+    )
   }
 
   if (!showPrivateKey) {
-    return <button onClick={() => setShowPasswordForm(true)}>View</button>;
+    return <button onClick={() => setShowPasswordForm(true)}>View</button>
   }
 
-  return <span>{privateKey}</span>;
-};
+  return <span>{privateKey}</span>
+}
 
-export default WalletPrivateKey;
+export default WalletPrivateKey
